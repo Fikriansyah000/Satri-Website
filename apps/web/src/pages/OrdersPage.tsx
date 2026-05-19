@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import Header from '../components/layout/Header'
 import {
   dummyRecentOrders,
   formatPrice,
   formatDateTime,
-  formatTime,
   getPaymentStatusLabel,
   getPaymentStatusColor,
   getOrderStatusLabel,
@@ -15,12 +13,12 @@ import {
 
 const OrdersPage = () => {
   const [orders] = useState<Order[]>(dummyRecentOrders)
-  const [lastUpdate, setLastUpdate] = useState(new Date())
+  const [, setForceUpdate] = useState({})
 
   // Simulate real-time updates
   useEffect(() => {
     const interval = setInterval(() => {
-      setLastUpdate(new Date())
+      setForceUpdate({})
     }, 30000) // Update every 30 seconds
     return () => clearInterval(interval)
   }, [])
@@ -50,21 +48,21 @@ const OrdersPage = () => {
         <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6 mb-6 border border-green-200 dark:border-green-800">
           <div className="flex items-start gap-4">
 
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center">
-                  <span className="material-symbols-outlined text-2xl">verified</span>
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                  Pesanan Terverifikasi ({filteredOrders.length})
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Berikut adalah daftar pesanan yang sudah dikonfirmasi dan terverifikasi pembayarannya. Pesanan sedang dalam proses pengiriman. 🚀
-                </p>
+            <div className="flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center">
+                <span className="material-symbols-outlined text-2xl">verified</span>
               </div>
             </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                Pesanan Terverifikasi ({filteredOrders.length})
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                Berikut adalah daftar pesanan yang sudah dikonfirmasi dan terverifikasi pembayarannya. Pesanan sedang dalam proses pengiriman. 🚀
+              </p>
+            </div>
           </div>
+        </div>
 
         {/* Orders Table - Desktop */}
         <div className="hidden md:block bg-white dark:bg-[#1a0f0e] rounded-xl shadow-sm border border-[#e6dcdb] dark:border-gray-800 overflow-hidden">
@@ -134,7 +132,7 @@ const OrdersPage = () => {
                   </span>
                 </div>
               </div>
-              
+
               <div className="p-4">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
@@ -145,7 +143,7 @@ const OrdersPage = () => {
                     <p className="text-xs text-gray-500">{order.customer.phone}</p>
                   </div>
                 </div>
-                
+
                 <div className="flex flex-wrap gap-2 mb-3">
                   {order.items.map((item: Order['items'][number], idx: number) => (
                     <span key={idx} className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs text-gray-600 dark:text-gray-300">
@@ -153,7 +151,7 @@ const OrdersPage = () => {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-gray-800">
                   <span className="text-xs text-gray-500">
                     {order.paymentMethod === 'qris' ? '💳 QRIS' : '💵 COD'}
