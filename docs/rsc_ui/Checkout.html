@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout - Satri</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f44034",
+                        "primary-dark": "#d63025",
+                        "background-light": "#f8f6f5",
+                        "background-dark": "#221110",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#181111] dark:text-gray-100 antialiased selection:bg-primary/20 selection:text-primary">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e6dcdb] dark:border-gray-800 bg-white dark:bg-[#1a0f0e] px-4 md:px-10 py-4 sticky top-0 z-50">
+<div class="layout-container flex w-full max-w-7xl mx-auto items-center justify-between">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">local_fire_department</span>
+</div>
+<h2 class="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-tight">Satri</h2>
+</div>
+<div class="hidden sm:flex items-center text-sm font-medium text-gray-500 gap-2">
+<span class="material-symbols-outlined text-lg">lock</span>
+                    Secure Checkout
+                </div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-7xl mx-auto px-4 md:px-10 py-8 md:py-12">
+<!-- Stepper -->
+<div class="mb-10 w-full flex justify-center">
+<div class="flex items-center gap-2 md:gap-4 text-sm md:text-base font-medium">
+<div class="flex items-center text-primary">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-white text-xs mr-2">1</span>
+<span>Informasi</span>
+</div>
+<span class="material-symbols-outlined text-gray-300 text-sm">chevron_right</span>
+<div class="flex items-center text-gray-900 dark:text-white">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs mr-2">2</span>
+<span>Pembayaran</span>
+</div>
+<span class="material-symbols-outlined text-gray-300 text-sm">chevron_right</span>
+<div class="flex items-center text-gray-400">
+<span class="flex items-center justify-center w-6 h-6 rounded-full border border-gray-300 text-xs mr-2">3</span>
+<span>Konfirmasi</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-10 lg:gap-16">
+<!-- Left Column: Forms -->
+<div class="flex-1 flex flex-col gap-8">
+<!-- Customer Info Section -->
+<div class="bg-white dark:bg-[#1a0f0e] p-6 md:p-8 rounded-xl shadow-sm border border-[#e6dcdb] dark:border-gray-800">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">person</span>
+                            Informasi Pengiriman
+                        </h2>
+<div class="space-y-5">
+<label class="block">
+<span class="text-gray-900 dark:text-gray-200 font-medium text-sm mb-1.5 block">Nama Lengkap</span>
+<input class="w-full h-12 px-4 rounded-lg border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:ring-primary placeholder-gray-400" placeholder="Masukkan nama lengkap anda" type="text"/>
+</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<label class="block">
+<span class="text-gray-900 dark:text-gray-200 font-medium text-sm mb-1.5 block">Nomor WhatsApp</span>
+<input class="w-full h-12 px-4 rounded-lg border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:ring-primary placeholder-gray-400" placeholder="08xx-xxxx-xxxx" type="tel"/>
+<p class="text-xs text-gray-500 mt-1">Kami akan mengirim update pesanan ke sini.</p>
+</label>
+<label class="block">
+<span class="text-gray-900 dark:text-gray-200 font-medium text-sm mb-1.5 block">Email (Opsional)</span>
+<input class="w-full h-12 px-4 rounded-lg border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:ring-primary placeholder-gray-400" placeholder="nama@email.com" type="email"/>
+</label>
+</div>
+<label class="block">
+<span class="text-gray-900 dark:text-gray-200 font-medium text-sm mb-1.5 block">Alamat Lengkap</span>
+<textarea class="w-full px-4 py-3 rounded-lg border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:ring-primary placeholder-gray-400 min-h-[100px] resize-y" placeholder="Nama Jalan, No Rumah, Kecamatan, Kota, Kode Pos"></textarea>
+</label>
+</div>
+</div>
+<!-- Payment Method Section -->
+<div class="bg-white dark:bg-[#1a0f0e] p-6 md:p-8 rounded-xl shadow-sm border border-[#e6dcdb] dark:border-gray-800">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">payments</span>
+                            Metode Pembayaran
+                        </h2>
+<div class="space-y-4">
+<!-- QRIS Option -->
+<label class="relative flex items-start p-4 cursor-pointer rounded-lg border-2 border-primary bg-primary/5 dark:bg-primary/10 transition-all">
+<div class="flex items-center h-5">
+<input checked="" class="h-4 w-4 text-primary border-gray-300 focus:ring-primary" name="payment_method" type="radio"/>
+</div>
+<div class="ml-3 flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="block text-sm font-bold text-gray-900 dark:text-white">QRIS (Instant Payment)</span>
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 z-10" title="GoPay">
+<span class="material-symbols-outlined text-[10px] text-blue-600">account_balance_wallet</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 z-20" title="OVO">
+<span class="material-symbols-outlined text-[10px] text-purple-600">payments</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 z-30" title="ShopeePay">
+<span class="material-symbols-outlined text-[10px] text-orange-600">shopping_bag</span>
+</div>
+</div>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400">Scan QR code untuk pembayaran via GoPay, OVO, Dana, ShopeePay, dll.</p>
+</div>
+</label>
+<!-- COD Option -->
+<label class="relative flex items-start p-4 cursor-pointer rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all bg-white dark:bg-gray-800">
+<div class="flex items-center h-5">
+<input class="h-4 w-4 text-primary border-gray-300 focus:ring-primary" name="payment_method" type="radio"/>
+</div>
+<div class="ml-3">
+<span class="block text-sm font-bold text-gray-900 dark:text-white">Cash on Delivery (COD)</span>
+<p class="text-xs text-gray-500 dark:text-gray-400">Bayar tunai kepada kurir saat pesanan sampai.</p>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:w-[380px] xl:w-[420px] flex-shrink-0">
+<div class="sticky top-28 bg-white dark:bg-[#1a0f0e] rounded-xl shadow-sm border border-[#e6dcdb] dark:border-gray-800 overflow-hidden">
+<div class="p-6 border-b border-gray-100 dark:border-gray-800">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Ringkasan Pesanan</h3>
+</div>
+<!-- Items List -->
+<div class="p-6 max-h-[300px] overflow-y-auto space-y-4">
+<!-- Item 1 -->
+<div class="flex gap-4">
+<div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-100 dark:border-gray-700 bg-gray-50">
+<img alt="Spicy red potato chips in a bowl" class="h-full w-full object-cover object-center" data-alt="Spicy red chips snack thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_2pBkb1ALQCDHjFn-N9rufZ2tfmu-3Ab-Nl7OtLU2hZWq1DLNQvNdOzo6s0ZHDWZje2coJgBM4wBEOQ9yTvZ7g_eRz90o2d7U6HRSKUhJgYCye51rZFh69l1pV-sEFyv3vdJMxUXykdrZA6VRJ0uVjWJu3OfwPh9toTlN0UZ1aV8oxV4CmN87IU8t8fdP2uaj24HyxtbzP8nGnkAEB5xXEUTEVpufBoVkoVLGgv25wxd5fJPSPRyKiRxS54sQIumh-zkmUMSCsnTT"/>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<div class="flex justify-between text-sm font-medium text-gray-900 dark:text-white">
+<h3>Keripik Pedas Level 5</h3>
+<p class="ml-4">Rp 30.000</p>
+</div>
+<p class="mt-1 text-xs text-gray-500">Qty: 2</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4">
+<div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-100 dark:border-gray-700 bg-gray-50">
+<img alt="Fried meatballs snack with chili powder" class="h-full w-full object-cover object-center" data-alt="Fried basreng snack thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFoktAKStHo-ZYk7htgxv_Labos1TgGuFBwbyZH1cAkZxUPZH2sfvb6ybr0KvDU27AiazgP0bf-vE19gyjXgPpGJLkIcqODVySWaSIzXcW0J37oazC9Y84UfK1po4-JqLeVx4F-mLCz2FSaLZzNw3yKK3v8UPjNSg9hxGEpAVEu9UJaiRhAgfig3sx85dEcNjsmqgioG_vKgbhr2qBZEduSmEYVJbrCH8TPfH5tG_XICwAmui5EYIHSmjnIZ2J6eVqwLIUwiUDM62m"/>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<div class="flex justify-between text-sm font-medium text-gray-900 dark:text-white">
+<h3>Basreng Jeruk</h3>
+<p class="ml-4">Rp 15.000</p>
+</div>
+<p class="mt-1 text-xs text-gray-500">Qty: 1</p>
+</div>
+</div>
+</div>
+<!-- Calculations -->
+<div class="border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/30 p-6 space-y-3">
+<div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+<p>Subtotal</p>
+<p class="font-medium">Rp 45.000</p>
+</div>
+<div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+<p>Ongkos Kirim</p>
+<p class="font-medium text-primary">Rp 12.000</p>
+</div>
+<div class="flex justify-between items-center pt-3 border-t border-gray-200 dark:border-gray-700 mt-3">
+<p class="text-base font-bold text-gray-900 dark:text-white">Total Bayar</p>
+<p class="text-xl font-bold text-primary">Rp 57.000</p>
+</div>
+</div>
+<!-- Actions -->
+<div class="p-6 bg-white dark:bg-[#1a0f0e]">
+<div class="flex items-start mb-4">
+<div class="flex h-5 items-center">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" id="terms" type="checkbox"/>
+</div>
+<div class="ml-3 text-xs">
+<label class="font-medium text-gray-700 dark:text-gray-300" for="terms">Saya menyetujui <a class="text-primary hover:underline" href="#">Syarat &amp; Ketentuan</a> pembelian.</label>
+</div>
+</div>
+<button class="w-full rounded-lg border border-transparent bg-primary px-6 py-4 text-base font-bold text-white shadow-sm hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">lock</span>
+                                Bayar Sekarang
+                            </button>
+<div class="mt-4 flex justify-center gap-3 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
+<span class="material-symbols-outlined text-gray-400" title="Secure">verified_user</span>
+<span class="material-symbols-outlined text-gray-400" title="Halal">restaurant</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto py-8 text-center text-sm text-gray-400 dark:text-gray-600">
+<p>© 2023 Satri Snack. All rights reserved.</p>
+</footer>
+</div>
+</body></html>

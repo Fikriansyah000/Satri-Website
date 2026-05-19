@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Satri Admin Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#f44034",
+            "background-light": "#f8f6f5",
+            "background-dark": "#221110",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+</head>
+<body class="light bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display text-[#181111] dark:text-white">
+<!-- Main Container -->
+<div class="flex flex-1 flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+<!-- Login Card -->
+<div class="w-full max-w-[480px] flex flex-col bg-white dark:bg-[#2C1A19] shadow-xl rounded-xl overflow-hidden border border-[#e6dcdb] dark:border-[#3e2c2b]">
+<!-- Header Section -->
+<div class="flex flex-col items-center pt-10 pb-2 px-8">
+<!-- Logo Placeholder -->
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">local_mall</span>
+</div>
+<h2 class="text-3xl font-bold tracking-tight text-[#181111] dark:text-white">Satri Admin</h2>
+<h1 class="text-[#8a6360] dark:text-[#d0b8b6] mt-2 text-sm font-medium">Dashboard Access</h1>
+</div>
+<!-- Form Section -->
+<div class="p-8 pt-6">
+<form action="#" class="flex flex-col gap-5" method="POST">
+<!-- Username Field -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold leading-normal text-[#181111] dark:text-white" for="email">Username or Email</label>
+<div class="relative">
+<input autocomplete="email" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181111] dark:text-white placeholder:text-[#8a6360] dark:placeholder:text-[#8a6360] focus:outline-0 focus:ring-2 focus:ring-primary/20 focus:border-primary border border-[#e6dcdb] dark:border-[#3e2c2b] bg-white dark:bg-[#221110] h-12 px-4 text-base font-normal leading-normal transition-all" id="email" name="email" placeholder="Enter your username or email" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-sm font-semibold leading-normal text-[#181111] dark:text-white" for="password">Password</label>
+</div>
+<div class="relative flex items-center">
+<input autocomplete="current-password" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181111] dark:text-white placeholder:text-[#8a6360] dark:placeholder:text-[#8a6360] focus:outline-0 focus:ring-2 focus:ring-primary/20 focus:border-primary border border-[#e6dcdb] dark:border-[#3e2c2b] bg-white dark:bg-[#221110] h-12 px-4 pr-12 text-base font-normal leading-normal transition-all" id="password" name="password" placeholder="Enter your password" required="" type="password"/>
+<button class="absolute right-0 flex items-center justify-center h-full w-12 text-[#8a6360] hover:text-primary transition-colors cursor-pointer focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Actions: Remember Me & Forgot Password -->
+<div class="flex items-center justify-between mt-1">
+<div class="flex items-center gap-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 rounded border-[#e6dcdb] dark:border-[#3e2c2b] border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all cursor-pointer" type="checkbox"/>
+<!-- Custom SVG checkmark is handled by Tailwind forms plugin or can be explicit -->
+</div>
+<span class="text-sm font-medium text-[#181111] dark:text-white group-hover:text-primary transition-colors">Remember me</span>
+</label>
+</div>
+<a class="text-sm font-medium text-primary hover:text-[#d32f2f] transition-colors" href="#">Forgot Password?</a>
+</div>
+<!-- Submit Button -->
+<button class="flex w-full justify-center items-center rounded-lg bg-primary px-4 py-3.5 text-sm font-bold leading-6 text-white shadow-sm hover:bg-[#d32f2f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors mt-2" type="submit">
+            Login
+          </button>
+</form>
+</div>
+<!-- Decorative Bottom Bar -->
+<div class="h-1.5 w-full bg-gradient-to-r from-primary/80 via-primary to-primary/80"></div>
+</div>
+<!-- Footer -->
+<footer class="mt-8 text-center">
+<p class="text-sm text-[#8a6360] dark:text-[#9ca3af]">
+        © 2026 Satri Admin. All rights reserved.
+      </p>
+</footer>
+</div>
+<!-- Decorative Background Image (Subtle pattern or gradient) -->
+<div class="fixed inset-0 -z-10 h-full w-full bg-white dark:bg-[#111111] bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+<div class="fixed left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-primary opacity-20 blur-[100px]"></div>
+</body></html>

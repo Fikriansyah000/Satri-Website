@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Satri - Sensasi Pedas Yang Bikin Ketagihan</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f44034",
+                        "accent": "#FF9800",
+                        "background-light": "#f8f6f5",
+                        "background-dark": "#221110",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2d1b1a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#181111] dark:text-white overflow-x-hidden min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-[#f5f0f0] dark:border-[#3d2b2a]">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16 md:h-20">
+<!-- Logo Area -->
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4C12.95 4 4 12.95 4 24C4 35.05 12.95 44 24 44C35.05 44 44 35.05 44 24C44 12.95 35.05 4 24 4ZM24 40C15.16 40 8 32.84 8 24C8 15.16 15.16 8 24 8C32.84 8 40 15.16 40 24C40 32.84 32.84 40 24 40Z" fill="currentColor" fill-opacity="0.2"></path>
+<path d="M30.5 22C31.8807 22 33 20.8807 33 19.5C33 18.1193 31.8807 17 30.5 17C29.1193 17 28 18.1193 28 19.5C28 20.8807 29.1193 22 30.5 22Z" fill="currentColor"></path>
+<path d="M19 28C14.03 28 10 23.97 10 19H14C14 21.76 16.24 24 19 24C21.76 24 24 21.76 24 19H28C28 23.97 23.97 28 19 28Z" fill="currentColor"></path>
+</svg>
+</div>
+<a class="text-2xl font-black tracking-tighter text-gray-900 dark:text-white" href="#">Satri<span class="text-primary">.</span></a>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors dark:text-gray-200" href="#">Beranda</a>
+<a class="text-sm font-medium hover:text-primary transition-colors dark:text-gray-200" href="#">Produk</a>
+<a class="text-sm font-medium hover:text-primary transition-colors dark:text-gray-200" href="#">Cara Order</a>
+<a class="text-sm font-medium hover:text-primary transition-colors dark:text-gray-200" href="#">Kontak</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button class="relative flex items-center justify-center size-10 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group">
+<span class="material-symbols-outlined text-gray-700 dark:text-gray-200 group-hover:text-primary">shopping_cart</span>
+<span class="absolute top-1.5 right-1.5 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group">
+<span class="material-symbols-outlined text-gray-700 dark:text-gray-200 group-hover:text-primary">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-surface-light dark:bg-surface-dark py-12 lg:py-20">
+<!-- Decorative blobs -->
+<div class="absolute top-0 right-0 -translate-y-12 translate-x-12 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 translate-y-12 -translate-x-12 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+<div class="layout-container max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+<!-- Hero Content -->
+<div class="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start gap-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-accent text-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">local_fire_department</span>
+                            Pedasnya Nampol!
+                        </div>
+<h1 class="text-gray-900 dark:text-white text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight">
+                            Sensasi Pedas Yang <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Bikin Ketagihan!</span>
+</h1>
+<p class="text-gray-600 dark:text-gray-300 text-lg sm:text-xl max-w-lg leading-relaxed">
+                            Rasakan kerenyahan keripik singkong dan basreng premium dengan racikan bumbu rahasia yang pedasnya nendang di lidah.
+                        </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-2">
+<button class="inline-flex items-center justify-center h-12 px-8 rounded-lg bg-primary hover:bg-red-600 text-white font-bold transition-all shadow-lg shadow-primary/30 transform hover:-translate-y-0.5">
+                                Pesan Sekarang
+                            </button>
+<button class="inline-flex items-center justify-center h-12 px-8 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary font-bold transition-all bg-transparent">
+                                Lihat Menu
+                            </button>
+</div>
+<!-- Trust Indicators -->
+<div class="flex items-center gap-6 mt-6 opacity-80">
+<div class="flex -space-x-3">
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-surface-dark bg-gray-200 bg-cover" data-alt="Customer portrait 1" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCarUnKA8rgsvB9GMjLN1N5DPMIrvu1IVtLLD18lx6OxLnobFXbpJ1MOArMtBqs1QbAnrxn2Tiu1kTeP5Zp1z0FnwVVuTI7Wj3EhIPJoPlA0PPErmlyLIrGBRWhjC1jz0n-y5Uye6qQ9SdLlVEMguHQjYuDBKpsIy7BjMZ_-fgh9jre6b-m5ryLQic04mMEsQ4GYENO_7D5OunGOsnAW2nEI39t22BxuyMVRmi-R1GSWmH1hwaW74T6qHYoap6CCySKwvG7t0FVRgWg')"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-surface-dark bg-gray-200 bg-cover" data-alt="Customer portrait 2" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACTHDLyKNmat8OG9rrJhOkSGFt-RckcM4tTqtNSlCEvqYIRuP60Jlm926T0Pqk50pmqF_xJN06hv5KOwaltAT7esqXixvatZPeLJ22LQLF6f7Obe3ftY2CksU66MWYD8z7BlOZI78THQdZgP64YCZakUKagQUh__74ustQ38Cj37NDBopFu8A-cRDUHBtp9jkYiuXm9ADtSAB2qjs_0wym26ZuEUXJ6-RS9-aUBwT31IhsCnOJUIe4QEFjK2YWncuRrIHtuzLMrkc2')"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-surface-dark bg-gray-200 bg-cover" data-alt="Customer portrait 3" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCn_DjD3KAKABFvmuzerAxyKGf-8HgT4byELxPhTrjAeFl3RBvtQQ2fTnhIMXCUNP6RqffE_-PfWfjAJHb22Vn0ZPtJSe3EL_tPQJWB24W1RQn0vMByVYwlkeOC6UgYTKvKdMcUZ9i7-EkurK4zxHEJ8gYNOMt9G8lnTs__71PeD30UDrrC49okmlKz31gjap8fENbfvCkjqan-XN4peE39vzGMRYwKcnYz4GtEw0lm94IwGW1_viv9-mjxn5Ul5FdT98KA_MC8Rx3F')"></div>
+</div>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">1000+ Pecinta Pedas Puas</p>
+</div>
+</div>
+<!-- Hero Image -->
+<div class="flex-1 w-full max-w-[600px] relative group perspective">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary to-accent opacity-20 blur-[80px] rounded-full transform rotate-12 group-hover:rotate-45 transition-transform duration-700"></div>
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden shadow-2xl bg-gray-100 dark:bg-gray-800 rotate-2 hover:rotate-0 transition-transform duration-500 ease-out">
+<div class="w-full h-full bg-center bg-cover" data-alt="Close up view of spicy red chips in a bowl with chili peppers" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAo0AS8AgpJA5b7nO1GtAfOQq9UDH6a30Wpjy_xz_vKb1A4-RFa0AFadfavjK-N67pZ9rdpV9cDuf1BokPh1aGLakRUOtH0wURmeK1eYHq75sDRt08Gw-kbWh7uIKTLt8BIDx6ft8Mseoq0HczEKrNj3rIaJMXWJbu1IP8truEXxFIsFbOv5ha2xqR9F2yKU1GDhjm4iQfttodmpOXxXh0495Cw4D3R1AYUyJHNX4U9hCBC1bWsIBRm3sWF1-wTtkQyilnAfxXE0qKZ');"></div>
+</div>
+<!-- Floating Card Badge -->
+<div class="absolute -bottom-6 -left-6 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-xl flex items-center gap-3 animate-bounce duration-[3000ms]">
+<div class="p-2 bg-red-100 dark:bg-red-900/30 rounded-lg text-primary">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Best Seller</p>
+<p class="text-sm font-bold text-gray-900 dark:text-white">Keripik Setan</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Section -->
+<section class="py-16 bg-white dark:bg-[#1a0d0c]">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div>
+<h2 class="text-3xl font-black text-gray-900 dark:text-white mb-2">Produk Unggulan</h2>
+<p class="text-gray-500 dark:text-gray-400">Pilih level pedasmu dan rasakan sensasinya</p>
+</div>
+<a class="text-primary font-bold hover:text-red-700 flex items-center gap-1 group" href="#">
+                        Lihat Semua Produk 
+                        <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Product Card 1 -->
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-[#3d2b2a] overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+<div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+<div class="absolute top-3 left-3 z-10 bg-primary text-white text-xs font-bold px-2.5 py-1 rounded-md">HOT</div>
+<div class="w-full h-full bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500" data-alt="Pack of spicy red cassava chips Pikset" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4rcVFAw8wqfkkTPc6dp-uTxv0bzziDvyZOnEPj_henIwxmymrN8xenu-WZ7XfRp08QRp11RLdr_RdKdroVlLTXUuA9mxyqjuzYfKDpwFhXp5xe83PSQozuIzzbzeb3mztSyPWdkcXETmofCoMWqNaxlP49fh3pEa3nnOXtOmjyOrM11nGkfDWymDDXu6343kz62wdw3EpZat-xzRuNGQsLURm6KAAhekO5j86GUohkNOM1leDm9P3XUbP5Z_Ehzb7SBAXqtOp7Wpz');"></div>
+<!-- Quick Action Overlay -->
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="p-2 bg-white rounded-full text-gray-900 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 bg-white rounded-full text-gray-900 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col flex-1 p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">Satri Pikset (Keripik Setan)</h3>
+</div>
+<!-- Rating -->
+<div aria-label="Spiciness Level 5" class="flex items-center gap-1 mb-4">
+<span class="text-xs font-semibold text-gray-500 dark:text-gray-400 mr-2">Level Pedas:</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="mt-auto flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="text-xs text-gray-400 line-through">Rp 20.000</span>
+<span class="text-xl font-bold text-primary">Rp 15.000</span>
+</div>
+<button class="flex-1 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-primary dark:hover:bg-primary hover:text-white dark:hover:text-white font-bold py-2.5 px-4 rounded-lg text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                                    Add
+                                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-[#3d2b2a] overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+<div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+<div class="w-full h-full bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500" data-alt="Plate of crispy spicy chips Sempring" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmWXPUN6suzDHgAjjE8bp0MzerxkcsCvoFyZnGA9wT4LAUYuXGFk1qVO5xwUo6KkZYo7iX4ceQ01OngFLxcUqKR5nWlTth8_kcEhO3g9G0GZ5v_PIFerEFdDZ2gWFSx4zAtk0sSF42xdB4w-iWRcWfnBu2nyTnPGgI78uFeQeozZ6YHWc-gmyK4Oy8lo3dHOh834XPvr71q128ojncBIKIQcYGWcSc0aY-Y7RHLPosfQsgmXCvZB8VI4_-AbhVZmaPQXDeqX1BBaYa');"></div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="p-2 bg-white rounded-full text-gray-900 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 bg-white rounded-full text-gray-900 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col flex-1 p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">Satri Sempring</h3>
+</div>
+<!-- Rating -->
+<div aria-label="Spiciness Level 3" class="flex items-center gap-1 mb-4">
+<span class="text-xs font-semibold text-gray-500 dark:text-gray-400 mr-2">Level Pedas:</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600 text-[18px]">local_fire_department</span>
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600 text-[18px]">local_fire_department</span>
+</div>
+<div class="mt-auto flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="text-xl font-bold text-primary">Rp 12.000</span>
+</div>
+<button class="flex-1 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-primary dark:hover:bg-primary hover:text-white dark:hover:text-white font-bold py-2.5 px-4 rounded-lg text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                                    Add
+                                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-[#3d2b2a] overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+<div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+<div class="absolute top-3 left-3 z-10 bg-accent text-white text-xs font-bold px-2.5 py-1 rounded-md">NEW</div>
+<div class="w-full h-full bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500" data-alt="Bowl of spicy fried meatballs Basreng" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMS3TT9f8E3dvqxNep1HRG01x3XgKOn0LDAjoxuY9m18Zq3kkm5z-7xrGMJ2B4a8S8AOBgUNsOvXKjYD_yfF5NUhZKIOKNSO34nrelSbHOKo9DINdTeeqrNGy70lzaRGL_W_5-R6Ndl0zErpwxXccEAUEAysLsZ70ZD9vKfQb9y9-j36u_c4sulgKvzJaYJnePiJ9Pm_2x5r7J7XBHiayX3Xqqo8N3mFYpaCAwixUPo5sUXALW3RcDE3niOPF8X-O2rbHnX31zmTaJ');"></div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="p-2 bg-white rounded-full text-gray-900 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 bg-white rounded-full text-gray-900 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col flex-1 p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">Satri Basreng Pedas</h3>
+</div>
+<!-- Rating -->
+<div aria-label="Spiciness Level 4" class="flex items-center gap-1 mb-4">
+<span class="text-xs font-semibold text-gray-500 dark:text-gray-400 mr-2">Level Pedas:</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-accent text-[18px] filled" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600 text-[18px]">local_fire_department</span>
+</div>
+<div class="mt-auto flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="text-xl font-bold text-primary">Rp 18.000</span>
+</div>
+<button class="flex-1 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-primary dark:hover:bg-primary hover:text-white dark:hover:text-white font-bold py-2.5 px-4 rounded-lg text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                                    Add
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Banner -->
+<section class="py-12 bg-primary dark:bg-red-900/40 text-white">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+<div class="flex items-center justify-center md:justify-start gap-4">
+<div class="p-3 bg-white/20 rounded-full">
+<span class="material-symbols-outlined text-3xl">local_shipping</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Pengiriman Cepat</h4>
+<p class="text-white/80 text-sm">Dikirim langsung hari ini</p>
+</div>
+</div>
+<div class="flex items-center justify-center md:justify-start gap-4">
+<div class="p-3 bg-white/20 rounded-full">
+<span class="material-symbols-outlined text-3xl">workspace_premium</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Bahan Premium</h4>
+<p class="text-white/80 text-sm">100% Singkong Pilihan</p>
+</div>
+</div>
+<div class="flex items-center justify-center md:justify-start gap-4">
+<div class="p-3 bg-white/20 rounded-full">
+<span class="material-symbols-outlined text-3xl">support_agent</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Layanan 24/7</h4>
+<p class="text-white/80 text-sm">Siap melayani pesananmu</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-white dark:bg-surface-dark border-t border-gray-100 dark:border-[#3d2b2a] pt-16 pb-8">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<a class="text-2xl font-black tracking-tighter text-gray-900 dark:text-white mb-6 block" href="#">Satri<span class="text-primary">.</span></a>
+<p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6">
+                        Menghadirkan cemilan pedas berkualitas tinggi untuk menemani setiap momen serumu.
+                    </p>
+<div class="flex gap-4">
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-gray-900 dark:text-white mb-4">Navigasi</h4>
+<ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">Beranda</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Produk Kami</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tentang Satri</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Kontak</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-gray-900 dark:text-white mb-4">Bantuan</h4>
+<ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">Cara Pemesanan</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Info Pengiriman</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Kebijakan Privasi</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-gray-900 dark:text-white mb-4">Newsletter</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Dapatkan info promo pedas terbaru!</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-gray-50 dark:bg-gray-800 border-none rounded-lg text-sm px-4 py-2 focus:ring-2 focus:ring-primary" placeholder="Email kamu" type="email"/>
+<button class="bg-primary text-white p-2 rounded-lg hover:bg-red-600 transition-colors">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-100 dark:border-[#3d2b2a] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-gray-400">© 2024 Satri Snacks. All rights reserved.</p>
+<div class="flex gap-6 text-xs text-gray-400">
+<a class="hover:text-gray-600 dark:hover:text-gray-200" href="#">Terms</a>
+<a class="hover:text-gray-600 dark:hover:text-gray-200" href="#">Privacy</a>
+<a class="hover:text-gray-600 dark:hover:text-gray-200" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

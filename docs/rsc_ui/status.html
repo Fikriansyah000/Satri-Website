@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Satri - Order Status Tracking</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#f44034",
+              "background-light": "#f8f6f5",
+              "background-dark": "#221110",
+              "surface-light": "#ffffff",
+              "surface-dark": "#2d1b1a",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#181111] dark:text-white flex flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 bg-white dark:bg-surface-dark border-b border-[#f5f0f0] dark:border-[#3d2b2a] w-full">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-10 py-3">
+<div class="flex items-center justify-between whitespace-nowrap">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-[#181111] dark:text-white text-xl font-black leading-tight tracking-[-0.015em]">Satri</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<nav class="flex items-center gap-9">
+<a class="text-[#181111] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Beranda</a>
+<a class="text-[#181111] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Belanja</a>
+<a class="text-[#181111] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Tentang Kami</a>
+<a class="text-[#181111] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Kontak</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-[#f5f0f0] dark:bg-[#3d2b2a] text-[#181111] dark:text-white hover:bg-gray-200 dark:hover:bg-[#4d3b3a] transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-[#f5f0f0] dark:bg-[#3d2b2a] text-[#181111] dark:text-white hover:bg-gray-200 dark:hover:bg-[#4d3b3a] transition-colors relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1 right-1 size-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1024px] mx-auto px-4 md:px-10 py-8">
+<!-- Header & Status -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+<div class="flex flex-col gap-2">
+<h1 class="text-[#181111] dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Status Pesanan</h1>
+<div class="flex items-center gap-2">
+<p class="text-[#8a6360] dark:text-gray-400 text-base font-normal">No. Pesanan: <span class="font-bold text-[#181111] dark:text-white">#STR-2023-889</span></p>
+<span class="px-2 py-0.5 rounded text-xs font-bold bg-green-100 text-green-700">PAID</span>
+</div>
+</div>
+<div class="text-right hidden md:block">
+<p class="text-sm text-[#8a6360] dark:text-gray-400">Estimasi Tiba</p>
+<p class="text-lg font-bold text-[#181111] dark:text-white">25 Okt - 27 Okt 2023</p>
+</div>
+</div>
+<!-- Visual Timeline (Horizontal Desktop) -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-6 md:p-10 shadow-sm border border-gray-100 dark:border-[#3d2b2a] mb-8 overflow-x-auto">
+<div class="min-w-[700px]">
+<div class="flex items-center justify-between relative">
+<!-- Progress Bar Background -->
+<div class="absolute top-6 left-0 w-full h-1 bg-[#e6dcdb] dark:bg-[#3d2b2a] -z-10"></div>
+<!-- Active Progress Bar (Calculated width for 'Dalam Pengiriman' - 75%) -->
+<div class="absolute top-6 left-0 w-[75%] h-1 bg-primary -z-10 transition-all duration-500"></div>
+<!-- Step 1: Completed -->
+<div class="flex flex-col items-center gap-3 w-32 group">
+<div class="size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined filled">assignment</span>
+</div>
+<p class="text-primary text-sm font-bold text-center">Pesanan Dibuat</p>
+<p class="text-xs text-gray-400 text-center">20 Okt, 10:30</p>
+</div>
+<!-- Step 2: Completed -->
+<div class="flex flex-col items-center gap-3 w-32 group">
+<div class="size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined filled">credit_card</span>
+</div>
+<p class="text-primary text-sm font-bold text-center">Pembayaran Dikonfirmasi</p>
+<p class="text-xs text-gray-400 text-center">20 Okt, 10:35</p>
+</div>
+<!-- Step 3: Completed -->
+<div class="flex flex-col items-center gap-3 w-32 group">
+<div class="size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined filled">package_2</span>
+</div>
+<p class="text-primary text-sm font-bold text-center">Sedang Diproses</p>
+<p class="text-xs text-gray-400 text-center">21 Okt, 08:00</p>
+</div>
+<!-- Step 4: Active/In Progress -->
+<div class="flex flex-col items-center gap-3 w-32 group">
+<div class="size-12 rounded-full bg-white dark:bg-surface-dark border-[3px] border-primary flex items-center justify-center text-primary relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-20"></span>
+<span class="material-symbols-outlined filled">local_shipping</span>
+</div>
+<p class="text-[#181111] dark:text-white text-sm font-bold text-center">Dalam Pengiriman</p>
+<p class="text-xs text-primary font-medium text-center">Sedang Berjalan</p>
+</div>
+<!-- Step 5: Pending -->
+<div class="flex flex-col items-center gap-3 w-32 group">
+<div class="size-12 rounded-full bg-[#f5f0f0] dark:bg-[#3d2b2a] border border-[#e6dcdb] dark:border-[#4d3b3a] flex items-center justify-center text-[#8a6360] dark:text-gray-500">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<p class="text-[#8a6360] dark:text-gray-500 text-sm font-medium text-center">Selesai</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Products -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<div class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-[#3d2b2a] overflow-hidden">
+<h3 class="text-[#181111] dark:text-white text-lg font-bold px-6 py-4 border-b border-gray-100 dark:border-[#3d2b2a]">Rincian Produk</h3>
+<!-- Item 1 -->
+<div class="flex gap-4 px-6 py-4 items-center hover:bg-background-light dark:hover:bg-[#362423] transition-colors">
+<div class="bg-gray-100 dark:bg-[#3d2b2a] shrink-0 rounded-lg size-[80px] bg-center bg-cover" data-alt="Red spicy potato chips bag" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDnlqy4-DvQOSribMttgJL94WcX_icC3xorrX9-vdKSFEUiK3wPhnXeQIkI3AvtBWHcMjrJToJKMNwYkJ1xvJUZNXgXM_M_zb8oXQddUQh2Uvr2NVErEljK053NaanRDke4CokBVG2h4O3KVNfLnaTMlsKIM8zWflhivN9n_TLnqmzAaiTBgJdgWpmaEL-tzAFzbHb5rV4cC1_Fg1x8PSiYdKBJDacRBQvICrzMHFkZWh_XepiAimO-nJ9LfktNgI3TkOp5Uk0NNurD");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-[#181111] dark:text-white text-base font-bold leading-normal">Keripik Pedas Level 5</p>
+<p class="text-[#8a6360] dark:text-gray-400 text-sm font-normal leading-normal">Varian: Extra Hot</p>
+<p class="text-[#8a6360] dark:text-gray-400 text-sm font-normal leading-normal mt-1">2 x Rp 25.000</p>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-[#181111] dark:text-white text-base font-bold leading-normal">Rp 50.000</p>
+</div>
+</div>
+<div class="w-full h-px bg-gray-100 dark:bg-[#3d2b2a] mx-auto w-[90%]"></div>
+<!-- Item 2 -->
+<div class="flex gap-4 px-6 py-4 items-center hover:bg-background-light dark:hover:bg-[#362423] transition-colors">
+<div class="bg-gray-100 dark:bg-[#3d2b2a] shrink-0 rounded-lg size-[80px] bg-center bg-cover" data-alt="Bowl of spicy fried basreng snack" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDl-TUhsolCMqb7zWNfDnVgrjQFDsVwcxRsOI03FA0_Necr9uApTle1llU-S5QarIXld1VNs0KJuSVjollxIkm2o2p-stnLhys1gZtQR3y4pliV54OOybNuEVhUHfG_2jb3d1BIqWEDUewOokKZSN4SOD2u9HE_3YUaIqNXHN8TciWnuHHZAWs5TONI3G2YiFLpRZyLFslJdgfKENbQTFQMAc68TN4UT6iLPxqriLYo4weVify4wigYIzDsGGy65PBA0op38SHDzBKk");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-[#181111] dark:text-white text-base font-bold leading-normal">Basreng Super Pedas</p>
+<p class="text-[#8a6360] dark:text-gray-400 text-sm font-normal leading-normal">Varian: Daun Jeruk</p>
+<p class="text-[#8a6360] dark:text-gray-400 text-sm font-normal leading-normal mt-1">1 x Rp 35.000</p>
+</div>
+<div class="shrink-0 text-right">
+<p class="text-[#181111] dark:text-white text-base font-bold leading-normal">Rp 35.000</p>
+</div>
+</div>
+<!-- Summary -->
+<div class="bg-background-light dark:bg-[#251514] px-6 py-4 flex flex-col gap-2 mt-2">
+<div class="flex justify-between items-center text-sm">
+<span class="text-[#8a6360] dark:text-gray-400">Subtotal</span>
+<span class="text-[#181111] dark:text-white font-medium">Rp 85.000</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-[#8a6360] dark:text-gray-400">Ongkos Kirim (JNE - REG)</span>
+<span class="text-[#181111] dark:text-white font-medium">Rp 12.000</span>
+</div>
+<div class="w-full h-px bg-gray-200 dark:bg-[#3d2b2a] my-2"></div>
+<div class="flex justify-between items-center text-lg">
+<span class="text-[#181111] dark:text-white font-bold">Total Pembayaran</span>
+<span class="text-primary font-black">Rp 97.000</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Info & Action -->
+<div class="flex flex-col gap-6">
+<!-- Shipping Address -->
+<div class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-[#3d2b2a] p-6 flex flex-col gap-4">
+<div class="flex items-center gap-3 text-[#181111] dark:text-white mb-1">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<h3 class="text-lg font-bold">Alamat Pengiriman</h3>
+</div>
+<div>
+<p class="text-[#181111] dark:text-white font-bold text-sm">Budi Santoso</p>
+<p class="text-[#8a6360] dark:text-gray-400 text-sm leading-relaxed mt-1">
+                            Jl. Mawar Merah No. 12, RT 05/RW 02<br/>
+                            Kecamatan Tebet, Jakarta Selatan<br/>
+                            DKI Jakarta, 12820<br/>
+                            0812-3456-7890
+                        </p>
+</div>
+<!-- Map Placeholder -->
+<div class="w-full h-32 rounded-lg bg-gray-100 dark:bg-[#3d2b2a] bg-cover bg-center mt-2" data-alt="Abstract map view of Jakarta city streets" data-location="Jakarta, Indonesia" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArw2z5bdyoVwTZpgA02Ym5iWE6srN5PqFYnCDJS5has2hvv9xn5vbfsSkVsDI8_5SXjgW1DjaIPemF4tJhu4RTxadBMFnOMz1lin_t4DLZTyerk8Pmh99WAN2NHfUha8XVp2ELBYb0RT4yqNGvamRDRtY4it6KE7RocZlsz-rGb-3Rh1RDBRp8OWDz8fQZYUNgiP-37SeVLnvRR5j2TvM0FuNq4EDju-ArBfSy-cUI0toiqrMOYN3v7rSM4dEf8CKcA9i-aJXUBeJn");'>
+</div>
+</div>
+<!-- Support Action -->
+<div class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-[#3d2b2a] p-6 flex flex-col gap-4">
+<div class="flex items-center gap-3 text-[#181111] dark:text-white">
+<span class="material-symbols-outlined text-primary">support_agent</span>
+<h3 class="text-lg font-bold">Butuh Bantuan?</h3>
+</div>
+<p class="text-[#8a6360] dark:text-gray-400 text-sm leading-normal">
+                        Jika ada masalah dengan pesanan Anda atau Anda ingin mengubah alamat, silakan hubungi kami segera.
+                    </p>
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg h-12 bg-primary hover:bg-red-600 text-white gap-3 text-sm font-bold leading-normal tracking-[0.015em] transition-all shadow-md shadow-red-200 dark:shadow-none">
+<span class="material-symbols-outlined">chat</span>
+                        Hubungi Penjual via WhatsApp
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

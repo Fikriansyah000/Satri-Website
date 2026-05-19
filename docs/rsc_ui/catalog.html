@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Satri - Product Catalog</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f44034",
+                        "background-light": "#f8f6f5",
+                        "background-dark": "#221110",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for horizontal chips if needed */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#181111] dark:text-[#f5f0f0] flex flex-col min-h-screen">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-[#1a0f0e]/90 backdrop-blur-md border-b border-[#f5f0f0] dark:border-[#3a2f2f]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Logo & Nav Links -->
+<div class="flex items-center gap-12">
+<a class="flex items-center gap-3 group" href="#">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined !text-[20px]">local_fire_department</span>
+</div>
+<h1 class="text-2xl font-black tracking-tighter text-gray-900 dark:text-white">Satri</h1>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors" href="#">Beranda</a>
+<a class="text-sm font-bold text-primary transition-colors" href="#">Produk</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors" href="#">Tentang Kami</a>
+</nav>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<!-- Search Bar (Desktop) -->
+<div class="hidden lg:flex items-center bg-[#f5f0f0] dark:bg-[#2a1d1d] rounded-lg h-10 px-3 w-64 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+<span class="material-symbols-outlined text-gray-400 !text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full text-gray-800 dark:text-gray-200 placeholder-gray-400" placeholder="Cari cemilan pedas..." type="text"/>
+</div>
+<!-- Icon Buttons -->
+<button class="relative p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-[#2a1d1d] transition-colors text-gray-700 dark:text-gray-200">
+<span class="material-symbols-outlined !text-[24px]">shopping_cart</span>
+<span class="absolute top-1.5 right-1.5 size-2 bg-primary rounded-full ring-2 ring-white dark:ring-[#1a0f0e]"></span>
+</button>
+<button class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-[#2a1d1d] transition-colors text-gray-700 dark:text-gray-200">
+<span class="material-symbols-outlined !text-[24px]">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Breadcrumbs -->
+<nav class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-6">
+<a class="hover:text-primary transition-colors" href="#">Beranda</a>
+<span class="mx-2 material-symbols-outlined !text-[16px]">chevron_right</span>
+<span class="font-medium text-gray-900 dark:text-gray-100">Produk</span>
+</nav>
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div>
+<h2 class="text-4xl font-black tracking-tight text-gray-900 dark:text-white mb-2">Produk Kami</h2>
+<p class="text-gray-500 dark:text-gray-400">Temukan cemilan pedas favoritmu disini.</p>
+</div>
+</div>
+<!-- Filter & Sort Toolbar -->
+<div class="sticky top-20 z-30 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur py-4 mb-8 border-b border-gray-200 dark:border-gray-800">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<!-- Filter Chips -->
+<div class="flex items-center gap-3 overflow-x-auto no-scrollbar pb-1 md:pb-0">
+<button class="flex items-center px-4 py-2 rounded-full bg-primary text-white text-sm font-medium shadow-sm hover:shadow-md transition-all">
+                        Semua
+                    </button>
+<button class="flex items-center px-4 py-2 rounded-full bg-white dark:bg-[#2a1d1d] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium hover:border-primary hover:text-primary transition-all">
+                        Pikset
+                    </button>
+<button class="flex items-center px-4 py-2 rounded-full bg-white dark:bg-[#2a1d1d] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium hover:border-primary hover:text-primary transition-all">
+                        Sempring
+                    </button>
+<button class="flex items-center px-4 py-2 rounded-full bg-white dark:bg-[#2a1d1d] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium hover:border-primary hover:text-primary transition-all">
+                        Basreng
+                    </button>
+</div>
+<!-- Sort & Count -->
+<div class="flex items-center justify-between md:justify-end gap-6 w-full md:w-auto">
+<span class="text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">12 Produk</span>
+<div class="relative group">
+<button class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-[#2a1d1d] border border-gray-200 dark:border-gray-700 px-4 py-2 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
+<span class="material-symbols-outlined !text-[18px]">sort</span>
+                            Terbaru
+                            <span class="material-symbols-outlined !text-[18px]">expand_more</span>
+</button>
+<!-- Dropdown Mock -->
+<div class="absolute right-0 mt-2 w-48 bg-white dark:bg-[#2a1d1d] rounded-lg shadow-xl border border-gray-100 dark:border-gray-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-right z-50">
+<a class="block px-4 py-2 text-sm text-primary bg-primary/5" href="#">Terbaru</a>
+<a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800" href="#">Harga Terendah</a>
+<a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800" href="#">Harga Tertinggi</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="group bg-white dark:bg-[#2a1d1d] rounded-xl overflow-hidden border border-transparent hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+<div class="absolute top-3 left-3 z-20 bg-white/90 dark:bg-black/80 backdrop-blur px-2.5 py-1 rounded-md text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
+                        Pikset
+                    </div>
+<!-- Primary Image -->
+<img alt="Spicy chips in red bowl on dark background" class="w-full h-full object-cover group-hover:opacity-0 transition-opacity duration-300 absolute inset-0 z-10" data-alt="Spicy chips in red bowl on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5X5QLR--7sobfyGqrZ75KOORTxwy3zlTKrad9uOIT8__7GgdUZECeP_C3M-O3AkIpuxyxco0BdU2e5ejBtWFH8MgGmfJfGwFiDfTSgSoQPyKjM71GOWJBtS_ua9y3Xql51OKlK9H8_Gw4grlGj1w9B09z4QFuecfnOXjmeOEv6nObbyi__ePDpc7LISox_7KX8EvOqxj7M4YC378ZqqEWtKesuzeSrYVw5uD4smQX-OPNJqJep0QKHnuykR53yfY4OaYvns5b55cr"/>
+<!-- Secondary Hover Image -->
+<img alt="Close up texture of spicy chips" class="w-full h-full object-cover absolute inset-0 z-0" data-alt="Close up texture of spicy chips" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKb8wJD-B_wFtYoXxw25Qu13TAQXFllFA37fu1ywScSQ4i8lmlFDrDbrbqTzOk3259wrH13PwFnSWHQWSCHwRdnmwlTxllkIKb9rpUncJx2VrRUmPD-B4L-xW4T_WgF10yyPRSB4TvGaBUrrijWOmg5nFq9DVVxwiguzyyY71SFOWBKmBMM02qLdoOukmXd41lQmVbh7As4Ucs-cxmrHXK38WsBzCM2pa9M7mbECfNLZT_L0wclOjjucVumnHGMqwVfx-ju1qMahcP"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex items-center gap-1 mb-2 text-gray-300">
+<!-- 5/5 Spicy -->
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="text-xs text-gray-500 ml-1 font-medium">Level 5</span>
+</div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1 group-hover:text-primary transition-colors">Keripik Pikset Setan</h3>
+<p class="text-sm text-gray-500 line-clamp-2 mb-4">Keripik singkong super pedas dengan bumbu rahasia.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-lg font-black text-gray-900 dark:text-white">Rp 15.000</span>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-lg transition-colors duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined !text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white dark:bg-[#2a1d1d] rounded-xl overflow-hidden border border-transparent hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+<div class="absolute top-3 left-3 z-20 bg-white/90 dark:bg-black/80 backdrop-blur px-2.5 py-1 rounded-md text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
+                        Sempring
+                    </div>
+<img alt="Stack of crispy cassava crackers" class="w-full h-full object-cover group-hover:opacity-0 transition-opacity duration-300 absolute inset-0 z-10" data-alt="Stack of crispy cassava crackers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5ZQ8MuKSxNuWUwiAsNiFvWPTG3Anv3zKpr6ZO7JlP7f172urp9FB2Dl4EymRRRknYkPMy3QxEKcZpCvGGmdAIiQR494Pd7BI3qpNpJFVTycLdolQTuy0e30WjhhN2_V6ag9M9ylBUlQquk2kTbC64DZJx_5sXMZfS0Fd_-2sZMe02rbGM0Fc3BFJJaUX3J9nPcORQWt9e1B5ogYdrFOci4aNEjcmjpWb9fK6dEKSR-18M5CIOtC0wWGloPTFWAdO9tbODM4DHDPp0"/>
+<img alt="Cracker texture zoom" class="w-full h-full object-cover absolute inset-0 z-0" data-alt="Cracker texture zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASZzbrI_LUTFdhnSWl31hvbgcouQJavB2hnK6vbBxUjVETZ5uaEbJR04tSMKlLLNFd3sS4GokcUI7oCXT_R_ZoaX1e_0BbVVxHTIt2Omot-uW-4CuI1iFKghhPls4Mno0HqegDHNOaDo781BXKA4Mj2QvZ51v8pzFtjELY2LD3CuIqo66bG7BXw2nWnVExy9KU0pAaVLqVDmY-Win1MkCyGAdT7IvQn937DjVIT-rLws7MJA5SDfjc_1Pwrr4722SMlFT1zp6kpQup"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex items-center gap-1 mb-2 text-gray-300">
+<!-- 2/5 Spicy -->
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-gray-300">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-gray-300">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-gray-300">whatshot</span>
+<span class="text-xs text-gray-500 ml-1 font-medium">Level 2</span>
+</div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1 group-hover:text-primary transition-colors">Sempring Original</h3>
+<p class="text-sm text-gray-500 line-clamp-2 mb-4">Renyah, gurih, dan sedikit pedas untuk teman ngopi.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-lg font-black text-gray-900 dark:text-white">Rp 12.000</span>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-lg transition-colors duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined !text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white dark:bg-[#2a1d1d] rounded-xl overflow-hidden border border-transparent hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+<div class="absolute top-3 left-3 z-20 bg-white/90 dark:bg-black/80 backdrop-blur px-2.5 py-1 rounded-md text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
+                        Basreng
+                    </div>
+<img alt="Fried meatballs snack with chili powder" class="w-full h-full object-cover group-hover:opacity-0 transition-opacity duration-300 absolute inset-0 z-10" data-alt="Fried meatballs snack with chili powder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2SEPG0_7LhWyeWzYZmhG03IQofatM2RQrzgC_h3xI_JsNE4fOhdbnUasTe0bH-Em25I05_CKDBDsGbBmmqT1-G_AlGfsbaFAb1qXvvoqk82flU0J2CiwxuuGngDyGrj5su49QJWYYx8XRyfHZxhwsNeajcSSZc1b9unJbeTReWIeshefL33bcpN4JQng4UQHQ5vKX3_OHhscHlWqML3q3u5CaRUXFt6q-qALMqL25I4a3HgWUHzw1RA6XdOGeGMbBynpqqvmMiIcN"/>
+<img alt="Spicy seasoning details" class="w-full h-full object-cover absolute inset-0 z-0" data-alt="Spicy seasoning details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEo7bBbqPaIBgqmbb3c0G7_QwHi6yWnUVJwjMVlN2KqA22WvXg9058zJogfwr2dS44954esD2O4vkoknxHLJKEJ7EtHFH6hFuKfRlgjAQL2r1umQ-wxqONVixv8m5K6xL80mTrEejjdLh95DuUeDDmPbVdUEr6aKfftzp9P4blMNaTDbx5h1azKG6hXpX0Ps8L1AP2ZqwCPbX9cx-YcscvpCWTvpCPNiMHEgOm6SjFNoaXbb5qiuIxtpbYtexQx-vIKh3pUB_AIXiw"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex items-center gap-1 mb-2 text-gray-300">
+<!-- 4/5 Spicy -->
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-gray-300">whatshot</span>
+<span class="text-xs text-gray-500 ml-1 font-medium">Level 4</span>
+</div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1 group-hover:text-primary transition-colors">Basreng Jeruk Nipis</h3>
+<p class="text-sm text-gray-500 line-clamp-2 mb-4">Basreng pedas dengan aroma daun jeruk yang segar.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-lg font-black text-gray-900 dark:text-white">Rp 18.000</span>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-lg transition-colors duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined !text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-white dark:bg-[#2a1d1d] rounded-xl overflow-hidden border border-transparent hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+<div class="absolute top-3 left-3 z-20 bg-white/90 dark:bg-black/80 backdrop-blur px-2.5 py-1 rounded-md text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
+                        Pikset
+                    </div>
+<img alt="Green spicy chips on plate" class="w-full h-full object-cover group-hover:opacity-0 transition-opacity duration-300 absolute inset-0 z-10" data-alt="Green spicy chips on plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2GG7R_dfN-KjOh0w_Pzqb7z93YwzaHzTZVGT8HYPus4m02ehKIqUHLb-7YwCd2nIY2P1tMOi6PxDh3-8TW2RWvdD0HJAf632QxfT_2Oa8qXMTR23b1jLhqz0D0CemE9YuTCgOpTuU7CnJaoPEaIQlD7-OjPuUHdJn3hZQEqjwWjLzQgFhkcmBMJU3jC4A19tLN9jwP9_rQsBvOClWXvoL_WxOaSgea7G4Cpjn4NDr9Iw0aN1mx4dtvK1ypIk6wdQ-YyBrGcBp3OQj"/>
+<img alt="Green chili texture" class="w-full h-full object-cover absolute inset-0 z-0" data-alt="Green chili texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfPhPNGaBmv-An5Hzxnla69qHv5fe4aP2_3PzFuGjb_2XYU-NLnHc3ZnMrVzSnpZ72g40B_Up_nXtna8YNL8F8lhNdbssMOeSD6MWX5OnfQab0jBxFUpE9B1fSJN3zo38gZBLmY8Q2FrKcAkbEOVtCLnEScyr-RMiI2cnpGhhXVPzj2s618yS_41BMQwudxz0kyqEb1yUcSKT7p5VUCtcPRbDwwvKuOkycHdLFeDUSZE4KK2toPUZ157QQjYv9U2azgbg_hmQjIDYD"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex items-center gap-1 mb-2 text-gray-300">
+<!-- 3/5 Spicy -->
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-gray-300">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-gray-300">whatshot</span>
+<span class="text-xs text-gray-500 ml-1 font-medium">Level 3</span>
+</div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1 group-hover:text-primary transition-colors">Pikset Cabe Ijo</h3>
+<p class="text-sm text-gray-500 line-clamp-2 mb-4">Sensasi pedas cabe ijo yang unik dan bikin nagih.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-lg font-black text-gray-900 dark:text-white">Rp 16.500</span>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-lg transition-colors duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined !text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5 (Repeated Style for Grid Layout) -->
+<div class="group bg-white dark:bg-[#2a1d1d] rounded-xl overflow-hidden border border-transparent hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+<div class="absolute top-3 left-3 z-20 bg-white/90 dark:bg-black/80 backdrop-blur px-2.5 py-1 rounded-md text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
+                        Sempring
+                    </div>
+<img alt="Spicy stick crackers" class="w-full h-full object-cover group-hover:opacity-0 transition-opacity duration-300 absolute inset-0 z-10" data-alt="Spicy stick crackers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmjSR6zTUPOHnpfz9JFiJdv78QREQO1SEFSYw4XBZw3ELcr_qrxq5naiaKJ4_PeYsu5_3fZI50QqnMMleHlMALDOv2zWQ-6YbPJ2BsnqsrrYmNQlaOqKpkRePuh9QapciCrO78l8BotAJvIEfib3TUqf3oynmOAkFiJYDac114JgaSywLMdZESCj16SU2MzRQPUZe5GWGyfGl8RWDLfNVp70Dpr9CmCulJLARISshr4_otIEgnCIkN6iMGOfh7IuZb3cych0KEQ6tY"/>
+<img alt="Spicy stick close up" class="w-full h-full object-cover absolute inset-0 z-0" data-alt="Spicy stick close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1UzKiYDtcxeJ4p0enL8E8mfV2wQxvamYMEA012tRyt2c0SVrIzC2e5Uf-ANgIzyTgZGb8uiJOZAr4f501sjzZNVNczLO6Z9ha8dROlNsL7lP_6sG6QStSX5MBNV00R2Kr7DQyLdS2lq5CPn6pGz5NFxVaTJsAwkvMR7_-wrVeg0bNxuhHXTuUe3EPsSI1UsPRDUV628H6R3vnMUTIO5L1MgHgkd4EBiO-pJEPmNbccM9cuVFmhd8_lrzeUQ_sxQidvnncdttBj_Lc"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex items-center gap-1 mb-2 text-gray-300">
+<!-- 5/5 Spicy -->
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="material-symbols-outlined !text-[18px] text-primary fill-current">whatshot</span>
+<span class="text-xs text-gray-500 ml-1 font-medium">Level 5</span>
+</div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1 group-hover:text-primary transition-colors">Sempring Balado</h3>
+<p class="text-sm text-gray-500 line-clamp-2 mb-4">Bumbu balado basah yang melimpah ruah.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-lg font-black text-gray-900 dark:text-white">Rp 13.000</span>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-lg transition-colors duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined !text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group bg-white dark:bg-[#2a1d1d] rounded-xl overflow-hidden border border-transparent hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+<div class="absolute top-3 left-3 z-20 bg-white/90 dark:bg-black/80 backdrop-blur px-2.5 py-1 rounded-md text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
+                        Paket
+                    </div>
+<img alt="Assorted spicy snacks on table" class="w-full h-full object-cover group-hover:opacity-0 transition-opacity duration-300 absolute inset-0 z-10" data-alt="Assorted spicy snacks on table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ1G2Tq-ALu3IacyVLHh8xQlK0R4Dp2QicRLhfgMhXj64L2e2zyS7mjh_itVqCwCK-IlwFgfAQlquox8ZvesL_loI3WqTGXYXMMyQVHxx6mkstBBsrhS6Eu3dD4Zrq9AoJPcLanSgXnJ4l6TJtX3mMaaFI8sc7XoVA4LYD2x0EA-keH6ktwDP7lEpuQlMX-9gw4SsWt8-0IbWK6hGsrz3Cxuj_rncQS-wrz2TEU5HvyPKMkNrXQDwg3QJLBWwi78KHARzZkauJ0Epk"/>
+<img alt="Assorted spicy snacks zoom" class="w-full h-full object-cover absolute inset-0 z-0" data-alt="Assorted spicy snacks zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJmRgxd1BW5YsiBlHaV3A5XJImoz-fWc5X5wynjdAETzRSNoHKib4T_re9955zdHWOYNX3FX81hPtE-PoSMUQ4_fwQmys69c0IYQocIQhnyugRaA0SWz6mV8DyxVmnHjL0EQSOxYAUVU9jGUHwI8lCvTUvGrZdwhm9UwDsyY-KxmpoJ4Rs_I_iGK2GPYViTukHZmgWkpEpfm_M-q-Cq7R7cUkmhDzf3Tk2ITu5TFLxNAbWJ9Zb_tkPojvypIeXtSHRPrKIkxojuqOm"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex items-center gap-1 mb-2 text-gray-300">
+<span class="text-xs text-gray-500 font-medium bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded">All Levels</span>
+</div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1 group-hover:text-primary transition-colors">Paket Hemat Satri</h3>
+<p class="text-sm text-gray-500 line-clamp-2 mb-4">Cobain semua varian dalam satu paket hemat. Isi 4 bungkus.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-lg font-black text-gray-900 dark:text-white">Rp 55.000</span>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-lg transition-colors duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined !text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More (Optional visual indicator) -->
+<div class="mt-12 flex justify-center">
+<button class="flex items-center gap-2 px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-bold text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-[#2a1d1d] transition-colors">
+                Tampilkan Lebih Banyak
+                <span class="material-symbols-outlined !text-[20px]">arrow_downward</span>
+</button>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="bg-white dark:bg-[#1a0f0e] border-t border-gray-200 dark:border-gray-800 py-10 mt-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="size-6 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined !text-[14px]">local_fire_department</span>
+</div>
+<span class="font-bold text-gray-900 dark:text-white">Satri</span>
+</div>
+<div class="text-sm text-gray-500">
+                © 2023 Satri Snack. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>
