@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { formatPrice, formatDateTime, STORE_WHATSAPP } from '@/data/orders'
+import { Header } from '@/components/layout'
 
 interface CompletedOrder {
   orderNumber: string
@@ -58,23 +59,7 @@ const OrderStatusPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background-light dark:bg-background-dark">
-      {/* Header */}
-      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e6dcdb] dark:border-gray-800 bg-white dark:bg-[#1a0f0e] px-4 md:px-10 py-4 sticky top-0 z-50">
-        <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-4 text-primary group">
-            <div className="size-8 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-3xl">local_fire_department</span>
-            </div>
-            <h2 className="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-tight">
-              Satri
-            </h2>
-          </Link>
-          <Link to="/orders" className="flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
-            <span className="material-symbols-outlined text-lg">list_alt</span>
-            <span className="hidden sm:inline">Semua Pesanan</span>
-          </Link>
-        </div>
-      </header>
+      <Header hideNav={true} />
 
       <main className="flex-grow w-full max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-12">
         {/* Success Animation */}

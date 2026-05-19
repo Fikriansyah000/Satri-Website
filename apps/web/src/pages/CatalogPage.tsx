@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Header, Footer } from '@/components/layout'
 import { Breadcrumbs, SpicyLevel } from '@/components/ui'
+import { useCart } from '@/context/CartContext'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface Product {
   id: string;
@@ -19,6 +21,14 @@ const CatalogPage = () => {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [activeFilter, setActiveFilter] = useState('Semua')
+  const { addToCart } = useCart()
+  const [toastMessage, setToastMessage] = useState<string | null>(null)
+
+  const handleAddToCart = (product: Product) => {
+    addToCart(product.id, 1, product.spicyLevel || 1)
+    setToastMessage(`${product.name} ditambahkan ke keranjang!`)
+    setTimeout(() => setToastMessage(null), 3000)
+  }
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -181,7 +191,10 @@ const CatalogPage = () => {
                   <span className="text-lg font-black text-gray-900 dark:text-white">
                     {formatPrice(product.price)}
                   </span>
-                  <button className="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-lg transition-colors duration-200 flex items-center justify-center">
+                  <button 
+                    onClick={() => handleAddToCart(product)}
+                    className="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-lg transition-colors duration-200 flex items-center justify-center cursor-pointer"
+                  >
                     <span className="material-symbols-outlined !text-[20px]">add_shopping_cart</span>
                   </button>
                 </div>
@@ -200,6 +213,21 @@ const CatalogPage = () => {
       </main>
 
       <Footer />
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {toastMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="fixed bottom-6 right-6 z-50 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3 font-medium"
+          >
+            <span className="material-symbols-outlined text-green-400 dark:text-green-600">check_circle</span>
+            {toastMessage}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }

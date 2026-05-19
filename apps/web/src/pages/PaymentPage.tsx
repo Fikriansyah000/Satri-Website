@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { formatPrice, generateWhatsAppMessage, STORE_WHATSAPP, CustomerInfo, CartItem } from '@/data/orders'
+import { Header } from '@/components/layout'
+import { useCart } from '@/context/CartContext'
 
 interface OrderData {
   orderNumber: string
@@ -22,6 +24,7 @@ const PaymentPage = () => {
   const [paymentProofPreview, setPaymentProofPreview] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
+  const { clearCart } = useCart()
 
   useEffect(() => {
     const stored = sessionStorage.getItem('pendingOrder')
@@ -103,36 +106,15 @@ const PaymentPage = () => {
     // Simulate upload delay
     await new Promise(resolve => setTimeout(resolve, 1500))
     
-    // Clear session and redirect to success
+    // Cleanup cart context and navigate
+    clearCart()
     sessionStorage.removeItem('pendingOrder')
-    sessionStorage.setItem('completedOrder', JSON.stringify({
-      ...orderData,
-      paymentProofUploaded: !!paymentProof,
-    }))
-    
-    navigate('/order-status')
+    navigate('/order-status', { state: { orderNumber: orderData.orderNumber } })
   }
 
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-background-light dark:bg-background-dark">
-      {/* Header */}
-      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e6dcdb] dark:border-gray-800 bg-white dark:bg-[#1a0f0e] px-4 md:px-10 py-4 sticky top-0 z-50">
-        <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-4 text-primary group">
-            <div className="size-8 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-3xl">local_fire_department</span>
-            </div>
-            <h2 className="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-tight">
-              Satri
-            </h2>
-          </Link>
-          <div className="flex items-center gap-2 bg-green-50 dark:bg-green-900/20 px-3 py-1.5 rounded-full border border-green-200 dark:border-green-800">
-            <span className="material-symbols-outlined text-green-600 text-[18px]">lock</span>
-            <span className="text-xs font-semibold text-green-700 dark:text-green-400">Secure</span>
-          </div>
-        </div>
-      </header>
-
+      <Header hideNav={true} />
       <main className="flex-grow w-full max-w-5xl mx-auto px-4 md:px-8 py-8 md:py-12">
         {/* Page Title */}
         <div className="mb-8 text-center">

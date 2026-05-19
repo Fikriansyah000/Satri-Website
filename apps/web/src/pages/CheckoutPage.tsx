@@ -1,22 +1,14 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { products } from '@/data/products'
 import { formatPrice, CustomerInfo, CartItem } from '@/data/orders'
+import { Header } from '@/components/layout'
+import { useCart } from '@/context/CartContext'
 
 const CheckoutPage = () => {
   const navigate = useNavigate()
   
-  // Cart state - initialized with some items (using correct product IDs from products.ts)
-  const [cart, setCart] = useState<{[key: string]: number}>({
-    '1': 2,  // Keripik Pikset Setan
-    '2': 1,  // Sempring Original
-  })
-
-  // State untuk level pedas per produk
-  const [spicyLevels, setSpicyLevels] = useState<{[key: string]: number}>({
-    '1': 3, // Default level 3
-    '2': 1  // Default level 1
-  })
+  const { items, updateQuantity, updateSpicyLevel } = useCart()
   
   const [paymentMethod, setPaymentMethod] = useState<'qris' | 'cod'>('qris')
   const [customer, setCustomer] = useState<CustomerInfo>({
@@ -29,20 +21,21 @@ const CheckoutPage = () => {
     notes: '',
   })
 
-  // Calculate cart items
+  // Calculate cart items mapped with products
   const cartItems: CartItem[] = useMemo(() => {
-    return Object.entries(cart)
-      .filter(([_, qty]) => qty > 0)
-      .map(([productId, quantity]) => {
-        const product = products.find(p => p.id === productId)!
+    return items
+      .map(item => {
+        const product = products.find(p => p.id === item.productId)
+        if (!product) return null
         return { 
-          productId, 
+          productId: item.productId, 
           product, 
-          quantity,
-          spicyLevel: spicyLevels[productId] || 1
+          quantity: item.quantity,
+          spicyLevel: item.spicyLevel || 1
         }
       })
-  }, [cart, spicyLevels])
+      .filter((item): item is CartItem => item !== null)
+  }, [items])
 
   // Calculate totals
   const subtotal = cartItems.reduce((sum, item) => sum + (item.product.price * item.quantity), 0)
@@ -50,16 +43,7 @@ const CheckoutPage = () => {
   const discount = subtotal >= 100000 ? 5000 : 0
   const total = subtotal + shippingCost - discount
 
-  const updateQuantity = (productId: string, delta: number) => {
-    setCart(prev => {
-      const newQty = Math.max(0, (prev[productId] || 0) + delta)
-      if (newQty === 0) {
-        const { [productId]: _, ...rest } = prev
-        return rest
-      }
-      return { ...prev, [productId]: newQty }
-    })
-  }
+
 
   const handleProceed = () => {
     if (cartItems.length === 0) {
@@ -88,19 +72,7 @@ const CheckoutPage = () => {
 
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-background-light dark:bg-background-dark">
-      {/* Header */}
-      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e6dcdb] dark:border-gray-800 bg-white dark:bg-[#1a0f0e] px-4 md:px-10 py-4 sticky top-0 z-50">
-        <div className="w-full max-w-7xl mx-auto">
-          <Link to="/" className="flex items-center gap-4 text-primary group">
-            <div className="size-8 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-3xl">local_fire_department</span>
-            </div>
-            <h2 className="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-tight">
-              Satri
-            </h2>
-          </Link>
-        </div>
-      </header>
+      <Header hideNav={true} />
 
       <main className="flex-grow w-full max-w-7xl mx-auto px-4 md:px-10 py-8 md:py-12">
         {/* Page Title */}
@@ -121,10 +93,11 @@ const CheckoutPage = () => {
               </h2>
               
               <div className="space-y-4">
-                {products.map((product) => {
-                  const qty = cart[product.id] || 0
+                {cartItems.map((item) => {
+                  const product = item.product;
+                  const qty = item.quantity;
                   return (
-                    <div key={product.id} className={`flex gap-4 p-4 rounded-lg border-2 transition-all ${qty > 0 ? 'border-primary bg-primary/5' : 'border-gray-100 dark:border-gray-800'}`}>
+                    <div key={product.id} className={`flex gap-4 p-4 rounded-lg border-2 transition-all border-primary bg-primary/5`}>
                       <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100">
                         <img 
                           src={product.images[0]} 
@@ -154,21 +127,21 @@ const CheckoutPage = () => {
                               {[1, 2, 3, 4, 5].map((level) => (
                                 <button
                                   key={level}
-                                  onClick={() => setSpicyLevels(prev => ({...prev, [product.id]: level}))}
+                                  onClick={() => updateSpicyLevel(product.id, level)}
                                   className={`p-1 rounded-full transition-all ${
-                                    (spicyLevels[product.id] || 1) >= level 
+                                    (item.spicyLevel || 1) >= level 
                                       ? 'text-red-500 scale-110' 
                                       : 'text-gray-300 dark:text-gray-700 hover:text-red-300'
                                   }`}
                                   title={`Level ${level}`}
                                 >
-                                  <span className={`material-symbols-outlined text-lg ${(spicyLevels[product.id] || 1) >= level ? 'fill-current' : ''}`}>
+                                  <span className={`material-symbols-outlined text-lg ${(item.spicyLevel || 1) >= level ? 'fill-current' : ''}`}>
                                     local_fire_department
                                   </span>
                                 </button>
                               ))}
                               <span className="text-xs font-bold text-red-500 ml-1">
-                                Level {spicyLevels[product.id] || 1}
+                                Level {item.spicyLevel || 1}
                               </span>
                             </div>
                           </div>
