@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 // Particle Generator Component
 const Particles = () => {
@@ -147,12 +148,16 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4 pointer-events-auto"
           >
-            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-primary shadow-[0_0_20px_rgba(239,68,68,0.4)] border-none">
-              Pesan Sekarang
-            </motion.button>
-            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-6 py-3 rounded-full font-bold text-white border border-white/30 backdrop-blur-sm hover:bg-white/10 transition-colors">
-              Lihat Menu
-            </motion.button>
+            <Link to="/cara-order">
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto btn-primary shadow-[0_0_20px_rgba(239,68,68,0.4)] border-none">
+                Pesan Sekarang
+              </motion.button>
+            </Link>
+            <Link to="/produk">
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto px-6 py-3 rounded-full font-bold text-white border border-white/30 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                Lihat Menu
+              </motion.button>
+            </Link>
           </motion.div>
 
           {/* Trust Indicators */}

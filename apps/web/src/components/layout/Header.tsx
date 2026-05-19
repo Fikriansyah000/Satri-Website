@@ -39,82 +39,84 @@ const Header: React.FC<HeaderProps> = ({ hideNav = false }) => {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-[#f5f0f0] dark:border-[#3d2b2a]">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo Area */}
-          <Link to="/" className="flex items-center gap-3 text-primary group z-50 relative">
-            <div className="size-8 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-3xl">local_fire_department</span>
-            </div>
-            <h2 className="text-gray-900 dark:text-white text-2xl font-black tracking-tighter">
-              Satri<span className="text-primary">.</span>
-            </h2>
-          </Link>
-
-          {/* Desktop Navigation */}
-          {!hideNav && (
-            <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => {
-                const isActive = location.pathname === link.path || 
-                                 (link.path !== '/' && location.pathname.startsWith(link.path));
-                return (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className={`text-sm font-semibold transition-colors duration-200 relative ${
-                      isActive 
-                        ? 'text-primary' 
-                        : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
-                    }`}
-                  >
-                    {link.label}
-                    {isActive && (
-                      <motion.div 
-                        layoutId="navIndicator"
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
-                        initial={false}
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                      />
-                    )}
-                  </Link>
-                )
-              })}
-            </nav>
-          )}
-
-          {/* Actions */}
-          <div className="flex items-center gap-2 md:gap-3 z-50 relative">
-            {/* Cart Button */}
-            <Link to="/checkout" className="relative p-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">
-              <span className="material-symbols-outlined !text-[24px]">shopping_cart</span>
-              <AnimatePresence>
-                {totalItems > 0 && (
-                  <motion.span 
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                    className="absolute top-0 right-0 inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold text-white bg-primary rounded-full border-2 border-white dark:border-[#1a0f0e]"
-                  >
-                    {totalItems}
-                  </motion.span>
-                )}
-              </AnimatePresence>
+    <>
+      <header className="sticky top-0 z-50 w-full bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-[#f5f0f0] dark:border-[#3d2b2a]">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo Area */}
+            <Link to="/" className="flex items-center gap-3 text-primary group z-50 relative">
+              <div className="size-8 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                <span className="material-symbols-outlined text-3xl">local_fire_department</span>
+              </div>
+              <h2 className="text-gray-900 dark:text-white text-2xl font-black tracking-tighter">
+                Satri<span className="text-primary">.</span>
+              </h2>
             </Link>
 
-            {/* Mobile Menu Button */}
+            {/* Desktop Navigation */}
             {!hideNav && (
-              <button 
-                className="md:hidden p-2 -mr-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                onClick={() => setIsMobileMenuOpen(true)}
-                aria-label="Toggle menu"
-              >
-                <span className="material-symbols-outlined !text-[28px]">menu</span>
-              </button>
+              <nav className="hidden md:flex items-center gap-8">
+                {navLinks.map((link) => {
+                  const isActive = location.pathname === link.path || 
+                                   (link.path !== '/' && location.pathname.startsWith(link.path));
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className={`text-sm font-semibold transition-colors duration-200 relative ${
+                        isActive 
+                          ? 'text-primary' 
+                          : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
+                      }`}
+                    >
+                      {link.label}
+                      {isActive && (
+                        <motion.div 
+                          layoutId="navIndicator"
+                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                          initial={false}
+                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        />
+                      )}
+                    </Link>
+                  )
+                })}
+              </nav>
             )}
+
+            {/* Actions */}
+            <div className="flex items-center gap-2 md:gap-3 z-50 relative">
+              {/* Cart Button */}
+              <Link to="/checkout" className="relative p-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">
+                <span className="material-symbols-outlined !text-[24px]">shopping_cart</span>
+                <AnimatePresence>
+                  {totalItems > 0 && (
+                    <motion.span 
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      exit={{ scale: 0 }}
+                      className="absolute top-0 right-0 inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold text-white bg-primary rounded-full border-2 border-white dark:border-[#1a0f0e]"
+                    >
+                      {totalItems}
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </Link>
+
+              {/* Mobile Menu Button */}
+              {!hideNav && (
+                <button 
+                  className="md:hidden p-2 -mr-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                  onClick={() => setIsMobileMenuOpen(true)}
+                  aria-label="Toggle menu"
+                >
+                  <span className="material-symbols-outlined !text-[28px]">menu</span>
+                </button>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* Mobile Menu Drawer */}
       <AnimatePresence>
@@ -182,7 +184,7 @@ const Header: React.FC<HeaderProps> = ({ hideNav = false }) => {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   )
 }
 
