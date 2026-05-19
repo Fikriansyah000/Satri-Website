@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Header from '../components/layout/Header'
 import {
   dummyRecentOrders,
   formatPrice,
@@ -31,33 +32,8 @@ const OrdersPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background-light dark:bg-background-dark">
-      {/* Header */}
-      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e6dcdb] dark:border-gray-800 bg-white dark:bg-[#1a0f0e] px-4 md:px-10 py-4 sticky top-0 z-50">
-        <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-4 text-primary group">
-            <div className="size-8 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-3xl">local_fire_department</span>
-            </div>
-            <h2 className="text-gray-900 dark:text-white text-2xl font-black tracking-tighter">
-              Satri<span className="text-primary">.</span>
-            </h2>
-          </Link>
-          <div className="flex items-center gap-4">
-            <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500">
-              <span className="material-symbols-outlined text-green-500 text-sm animate-pulse">fiber_manual_record</span>
-              Update: {formatTime(lastUpdate)}
-            </div>
-            <Link to="/admin/orders" className="flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 font-medium rounded-lg transition-colors text-sm">
-              <span className="material-symbols-outlined text-lg">admin_panel_settings</span>
-              <span className="hidden sm:inline">Admin</span>
-            </Link>
-            <Link to="/checkout" className="flex items-center gap-2 px-4 py-2 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm">
-              <span className="material-symbols-outlined text-lg">add</span>
-              <span className="hidden sm:inline">Pesanan Baru</span>
-            </Link>
-          </div>
-        </div>
-      </header>
+      {/* Navigation Bar */}
+      <Header />
 
       <main className="flex-grow w-full max-w-7xl mx-auto px-4 md:px-10 py-8">
         {/* Page Title */}
